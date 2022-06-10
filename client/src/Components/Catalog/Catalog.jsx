@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ImgMediaCard from "./ImgMediaCard";
+import CartButton from "./CartButton";
 
 export default function Catalog() {
   const group = useSelector((state) => state.group);
@@ -55,7 +56,7 @@ export default function Catalog() {
               <Grid key={index} item>
                 <Item>
                   <ImgMediaCard
-                    
+                    article={item.article}
                     price={item.price}
                     name={item.name}
                   />
@@ -64,6 +65,7 @@ export default function Catalog() {
             );
           })}
         </Grid>
+        <CartButton />
       </Box>
     </div>
   </Fragment>

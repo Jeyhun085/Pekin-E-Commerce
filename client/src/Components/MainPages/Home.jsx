@@ -1,12 +1,24 @@
-import React, { Fragment } from "react";
-import "./Home.styles.scss"
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+import "./Home.styles.scss";
+
+// import required modules
+import { Navigation } from "swiper";
 
 export default function Home() {
   return (
-    <Fragment>
     <div className="home-container">
-    <h1>This is Home Page</h1>
-    </div>
-    </Fragment>
+      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+        <SwiperSlide className="slide1"><h1>Hello</h1></SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+      </Swiper>
+      </div>
   );
 }

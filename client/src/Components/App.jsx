@@ -5,16 +5,18 @@ import ButtonAppBar from "./Navbar/ButtonAppBar";
 import Home from "./MainPages/Home";
 import About from "./MainPages/About";
 import Contact from "./MainPages/Contact";
+import CartPage from "./Catalog/CartPage/CartPage";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<ButtonAppBar />}>
+        <Route path="*" element={<ButtonAppBar />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="catalog" element={<Catalog />} />
+          <Route path="cart" element={<CartPage />} />
         </Route>
       </Routes>
     </div>

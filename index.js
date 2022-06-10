@@ -33,6 +33,7 @@ app.post('/',express.static('public'), async (req,res) =>{
       const items = await getItems()
       const data = items.map(item=>{
         return {
+            article: item.article,
             name : item.name,
             price : item.salePrices[0].value /100
         }

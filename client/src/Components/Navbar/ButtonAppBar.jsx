@@ -28,12 +28,8 @@ export default function ButtonAppBar() {
               Catalog
             </MenuItem>
             <Routes>
-            <Route path="catalog" element={<TemporaryDrawer />} />
+              <Route path="catalog" element={<TemporaryDrawer />} />
             </Routes>
-            
-            
-            
-            
           </Toolbar>
         </AppBar>
       </Box>
