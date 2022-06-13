@@ -6,7 +6,7 @@ export default function Home() {
     <Fragment>
     <div className="home-container">
     <h1>This is Cart Page</h1>
-    <CartItemsTable></CartItemsTable>
+    <CartItemsTable />
     </div>
     </Fragment>
   );

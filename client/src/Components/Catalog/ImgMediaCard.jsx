@@ -12,8 +12,16 @@ export default function ImgMediaCard(props) {
 
   const [cookies, setCookie, removeCookie] = useCookies();
 
-  function AddToCart(article) {
-    setCookie(article, 2 , {maxAge: 604800})
+  function AddToCart(article, name, price) {
+
+var params = {
+  name: name,
+  price: price,
+  article: article,
+  qty: 2
+}
+
+    setCookie(article, params , {maxAge: 604800})
   }
 
 
@@ -37,7 +45,7 @@ export default function ImgMediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={() => {AddToCart(props.article)}} size="large"><ShoppingCartIcon /></Button>
+        <Button onClick={() => {AddToCart(props.article,props.name,props.price)}} size="large"><ShoppingCartIcon /></Button>
       </CardActions>
     </Card>
   );
