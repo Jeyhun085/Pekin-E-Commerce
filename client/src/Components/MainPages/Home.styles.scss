@@ -1,17 +1,41 @@
 .home-container {
    
-    height: 100px;
+    
 
 
 .slide1 {
-    background-image: url("https://s.auto.drom.ru/i24215/c/photos/fullsize/haval/h9/haval_h9_767702.jpg");
+    background-image: linear-gradient(to bottom, rgba(1, 5, 26, 0.52), rgba(3, 0, 3, 0.73)), url("https://s.auto.drom.ru/i24215/c/photos/fullsize/haval/h9/haval_h9_767702.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    h1 {
+  background-position: center;
+    h1 {color: white;
         font-size: 50px;
+        padding : 30px 50px;
+      
     }
 }
-
+.slide2 {
+    background-image: linear-gradient(to bottom, rgba(1, 5, 26, 0.52), rgba(3, 0, 3, 0.73)), url("https://carsalesbase.com/wp-content/uploads/2015/02/changan_uni_t_2020_5k-HD-scaled.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  background-position: center;
+    h1 {color: white;
+        font-size: 50px;
+        padding : 30px 50px;
+      
+    }
+}
+.slide3 {
+    background-image: linear-gradient(to bottom, rgba(1, 5, 26, 0.52), rgba(3, 0, 3, 0.73)), url("https://gomotors.net/photos/47/86/great-wall-wingle-5_606ec.jpg?i");
+    background-repeat: no-repeat;
+    background-size: cover;
+  background-position: center;
+    h1 {color: rgb(253, 253, 253);
+        font-size: 50px;
+        padding : 30px 50px;
+      
+    }
+}
 .swiper {
   width: 100%;
   height: 50rem;
@@ -44,3 +68,13 @@
 }
 
 }
+//icon container stuff
+.icon-container{  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  padding-top: 2%;
+  background-color: aliceblue;
+  height:auto;
+}
+
