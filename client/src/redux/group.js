@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'group',
   initialState: {
-    model: "baic",
-    section: "chassis"
+    model: "c30",
+    section: "engine"
   },
   reducers: {
     changeModel: (state, value) => {
