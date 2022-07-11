@@ -22,31 +22,35 @@ app.set("view engine", "ejs");
 app.post("/", express.static("public"), async (req, res) => {
   const model = req.body.model;
   const section = req.body.section;
-  const getItems = async () => {
-    try {
-      const response = await axios.get(
-        `${urls.filterUrl}=${urls.modelUrl}~${model};${urls.sectionUrl}=${section}`,
-        config
-      );
-      return response.data.rows;
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const items = await getItems();
-  // console.log(items);
-  const data = items.map((item) => {
-    return {
-      article: item.article,
-      name: item.name,
-      price: item.salePrices[0].value / 100,
-      available: item.stock>0 ? true : false,
-      inTransit: item.inTransit>0 ? true : false
+  if (model==="") {
+    res.send(null)
+  } else {
+    const getItems = async () => {
+      try {
+        const response = await axios.get(
+          `${urls.filterUrl}=${urls.modelUrl}~${model};${urls.sectionUrl}=${section}`,
+          config
+        );
+        return response.data.rows;
+      } catch (err) {
+        console.error(err);
+      }
     };
-  });
-  console.log(data.length);
-  res.send(data);
+  
+    const items = await getItems();
+    const data = items.map((item) => {
+      return {
+        article: item.article,
+        name: item.name,
+        price: item.salePrices[0].value / 100,
+        available: item.stock>0 ? true : false,
+        inTransit: item.inTransit>0 ? true : false
+      };
+    });
+    console.log(data.length);
+    res.send(data);
+  }
+  
 });
 
 const Schema = mongoose.Schema;

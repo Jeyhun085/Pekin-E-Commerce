@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import ImgMediaCard from "./ImgMediaCard";
 import CartButton from "./CartButton";
 import Loader from "./Loader";
+import DialogSelect from "./DialogSelect";
 
 
 
@@ -51,8 +52,10 @@ export default function Catalog() {
   <Fragment>
   <Box sx={{ flexGrow: 1 }}>
   <div>
-    <h1>Current model is "{group.model}"" and section is: "{group.section}"</h1>
+    <h1>Current model is "{group.model}"" and section is: "{group.section}"  {group.isSelected}</h1>
   </div>
+  {group.isSelected || <DialogSelect/>}
+  
   </Box>
     <div  className="itemsContainer">
     {isLoading && <Loader />}
