@@ -7,17 +7,18 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useCookies } from "react-cookie";
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 
 export default function ImgMediaCard(props) {
-
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-    const handleClick = (name) => {
-        enqueueSnackbar(`"${name}" mehsul sebete elave olundu`, {variant :'success'});
-    };
+  const handleClick = (name) => {
+    enqueueSnackbar(`"${name}" mehsul sebete elave olundu`, {
+      variant: "success",
+    });
+  };
 
-//                Cookies part
+  //                Cookies part
 
   const [cookies, setCookie, removeCookie] = useCookies();
   function AddToCart(article, name, price) {
@@ -29,34 +30,43 @@ export default function ImgMediaCard(props) {
     };
 
     setCookie(article, params, { expires: new Date(Date.now() + 604800000) });
-    handleClick(name)
+    handleClick(name);
   }
 
   return (
-    
-    <Card sx={{ width: 200 }}>
+    <Card sx={{ width: 300 }}>
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt={props.name}
         height="140"
         image="/images/sparePart.jpeg"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+      <CardContent sx={{paddingBottom:1}}>
+        <Typography align={"left"} gutterBottom variant="h6" component="h6">
           {props.name}
         </Typography>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography align={"left"} gutterBottom variant="h6" component="h6">
           Kod: {props.article}
         </Typography>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography
+          sx={{ fontWeight: "bold" }}
+          align={"right"}
+          gutterBottom
+          variant="h6"
+          component="h6"
+        >
           {props.price} AZN
         </Typography>
-        <Typography gutterBottom variant="h6" component="div">
-          Movcudlug:{" "}
+        <Button
+          sx={{ width: "100%", fontSize: "15px" }}
+          variant="contained"
+          color={props.available ? "success" : props.inTransit ? "warning" : "error"}
+        >
+          Qaliq:{" "}
           {props.available ? "Var" : props.inTransit ? "Yoldadir" : "Bitib"}
-        </Typography>
+        </Button>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{paddingTop:0}}>
         <Button
           sx={{ width: "100%", fontSize: "10px" }}
           variant="contained"
@@ -70,6 +80,5 @@ export default function ImgMediaCard(props) {
         </Button>
       </CardActions>
     </Card>
-   
   );
 }

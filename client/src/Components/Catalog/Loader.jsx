@@ -8,7 +8,7 @@ function skeletons(num) {
     objs.push(<Grid key={i}  item>
       <ContentLoader
         speed={1}
-        width={200}
+        width={300}
         height={300}
         backgroundColor="#f3f3f3"
         foregroundColor="grey"
@@ -28,8 +28,8 @@ function skeletons(num) {
 
 export default function Loader(props) {
   return (
-    <Grid container spacing={2}>
-      {skeletons(30)}
+    <Grid container justifyContent={"center"} spacing={2}>
+      {skeletons(20)}
     </Grid>
   );
 }
