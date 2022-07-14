@@ -34,7 +34,7 @@ export default function ImgMediaCard(props) {
   }
 
   return (
-    <Card sx={{ width: 300 }}>
+    <Card sx={{ maxWidth: 450, minWidth: 400 }}>
       <CardMedia
         component="img"
         alt={props.name}
@@ -42,41 +42,42 @@ export default function ImgMediaCard(props) {
         image="/images/sparePart.jpeg"
       />
       <CardContent sx={{paddingBottom:1}}>
-        <Typography align={"left"} gutterBottom variant="h6" component="h6">
+        <Typography sx={{width: 1,fontSize: "1.625rem",fontWeight: "bold" }} align={"left"} gutterBottom  component="h5">
           {props.name}
         </Typography>
-        <Typography align={"left"} gutterBottom variant="h6" component="h6">
+        <Typography sx={{width: 1}} align={"left"} gutterBottom variant="h5" component="h5">
           Kod: {props.article}
         </Typography>
         <Typography
           sx={{ fontWeight: "bold" }}
           align={"right"}
           gutterBottom
-          variant="h6"
-          component="h6"
+          variant="h5"
+          component="h5"
         >
           {props.price} AZN
         </Typography>
-        <Button
-          sx={{ width: "100%", fontSize: "15px" }}
+        
+      </CardContent>
+      <CardActions spa sx={{paddingTop:0, justifyContent: "space-between" }}>
+      <Button
+          sx={{  fontSize: "1.29rem" }}
           variant="contained"
           color={props.available ? "success" : props.inTransit ? "warning" : "error"}
         >
           Qaliq:{" "}
           {props.available ? "Var" : props.inTransit ? "Yoldadir" : "Bitib"}
         </Button>
-      </CardContent>
-      <CardActions sx={{paddingTop:0}}>
         <Button
-          sx={{ width: "100%", fontSize: "10px" }}
+          sx={{  height: 1  }}
           variant="contained"
           onClick={() => {
             AddToCart(props.article, props.name, props.price);
           }}
-          size="large"
+          
         >
-          <ShoppingCartIcon />
-          Sebete elave et
+          <ShoppingCartIcon sx={{  fontSize: "2.25rem"  }} />
+
         </Button>
       </CardActions>
     </Card>

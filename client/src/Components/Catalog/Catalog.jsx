@@ -19,8 +19,9 @@ export default function Catalog() {
   useEffect(() => {
     setData([])
     const fetchData = async () => {
+
       try {
-        const result = await fetch("http://localhost:8080", {
+        const result = await fetch(`http://${window.location.hostname}:8080`, {
           headers: {
             'Content-Type':'application/json'
         },
@@ -53,7 +54,7 @@ export default function Catalog() {
   <Fragment>
   <Box sx={{ flexGrow: 1 }}>
   <Typography sx={{marginTop:5}} align="center" variant="h3">
-  Current model is "{group.model}" and section is: "{group.section}"
+  Current model is "{group.model}" and section is: "{group.section}" 
   </Typography>
   {group.isSelected || <DialogSelect/>}
   
