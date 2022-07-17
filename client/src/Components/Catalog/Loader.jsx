@@ -8,7 +8,7 @@ function skeletons(num) {
     objs.push(<Grid key={i}  item>
       <ContentLoader
         speed={1}
-        width={300}
+        width={400}
         height={300}
         backgroundColor="#f3f3f3"
         foregroundColor="grey"

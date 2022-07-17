@@ -34,7 +34,7 @@ const [open, setOpen] = React.useState(false);
   const [cookies, setCookie, removeCookie] = useCookies();
   const onSubmit = (data) => {
     data.mehsullar = cookies;
-    fetch("http://localhost:8080/checkout", {
+    fetch(`http://${window.location.hostname}:8080/checkout`, {
       headers: {
         "Content-Type": "application/json",
       },

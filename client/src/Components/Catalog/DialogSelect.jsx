@@ -9,11 +9,11 @@ import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import Typography from "@mui/material/Typography";
 import { GWModels, CAModels, HavalModels, sections } from "../ModelLists";
 import { changeModel, changeSection, changeIsSelected } from "../../redux/group";
 import { useSelector, useDispatch } from "react-redux";
 import { useSnackbar } from 'notistack';
+import { useCookies } from "react-cookie";
 
 export default function DialogSelect() {
   const [open, setOpen] = React.useState(true);
@@ -24,6 +24,7 @@ export default function DialogSelect() {
   const group = useSelector((state) => state.group);
   const dispatch = useDispatch();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const [cookies, setCookie, removeCookie] = useCookies();
 
   const handleError = (name) => {
     enqueueSnackbar(`"${name}" bolmesin secmeyiniz xais olunur`, {variant :'error'});
@@ -54,7 +55,6 @@ export default function DialogSelect() {
     dispatch(changeModel(model));
     dispatch(changeSection(section));
     dispatch(changeIsSelected());
-    console.log(group);
   };
 
   const handleSubmit = (event, reason) => {
@@ -67,15 +67,17 @@ export default function DialogSelect() {
     } else {
       handleClose()
     }
+    setCookie("latestGroup", group , { expires: new Date(Date.now() + 604800000), path: "/catalog" })
+
   };
 
   return (
     <div>
-      <Dialog disableEscapeKeyDown open={open} onClose={handleSubmit}>
-        <DialogTitle>Bolmeni secin</DialogTitle>
-        <DialogContent>
-          <Box component="form" sx={{ display: "flex", flexWrap: "wrap" }}>
-            <FormControl required sx={{ m: 1, minWidth: 120 }}>
+      <Dialog  maxWidth="lg" fullWidth={true} disableEscapeKeyDown open={open} onClose={handleSubmit}>
+        <DialogTitle sx={{textAlign: "center", fontSize: "2rem"}} >Bolmeni secin</DialogTitle>
+        <DialogContent  >
+          <Box justifyContent="center" component="form" sx={{ display: "flex", flexWrap: "wrap" }}>
+            <FormControl required sx={{ m: 1, minWidth: 200 }}>
               <InputLabel htmlFor="demo-dialog-native">Brand</InputLabel>
               <Select
                 native
@@ -90,7 +92,7 @@ export default function DialogSelect() {
               </Select>
             </FormControl>
 
-            <FormControl required sx={{ m: 1, minWidth: 120 }}>
+            <FormControl required sx={{ m: 1, minWidth: 200 }}>
               <InputLabel htmlFor="demo-dialog-native">Model</InputLabel>
               <Select
                 native
@@ -99,12 +101,12 @@ export default function DialogSelect() {
               >
                 <option aria-label="None" value="" />
 
-                {brandList.map((model) => {
-                  return <option value={model.value}>{model.name}</option>;
+                {brandList.map((model, index) => {
+                  return <option key={index} value={model.value}>{model.name}</option>;
                 })}
               </Select>
             </FormControl>
-            <FormControl required sx={{ m: 1, minWidth: 120 }}>
+            <FormControl required sx={{ m: 1, minWidth: 200 }}>
               <InputLabel htmlFor="demo-dialog-native">Section</InputLabel>
               <Select
                 native
@@ -115,15 +117,16 @@ export default function DialogSelect() {
               >
                 <option aria-label="None" value="" />
 
-                {sections.map((model) => {
-                  return <option value={model.value}>{model.name}</option>;
+                {sections.map((model, index) => {
+                  return <option key={index} value={model.value}>{model.name}</option>;
                 })}
               </Select>
             </FormControl>
           </Box>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleSubmit}>Ok</Button>
+        <DialogActions sx={{ justifyContent: "space-between" }}>
+        <Button color="secondary" variant="contained" sx={{fontSize: "1.5rem"}} href="/" >Esas sehife</Button>
+          <Button variant="contained" sx={{fontSize: "1.5rem"}} onClick={handleSubmit}>Ok</Button>
         </DialogActions>
       </Dialog>
     </div>
