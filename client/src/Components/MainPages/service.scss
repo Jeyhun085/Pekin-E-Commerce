@@ -1,0 +1,64 @@
+.service-page{ padding: 2%;
+    background-color: inherit;
+    .services-info{  
+        display: grid;
+       grid-template-columns: 1fr 2fr;
+       align-items: center;
+       justify-content: center; 
+       margin-bottom: 2rem;
+    }
+    .service-image{
+        width: 80%;
+        height: auto; margin-bottom: 20px;
+    }
+    .container-for-grids{ border-bottom: 2px solid rgba(255, 255, 255, 0.36);
+
+    }
+    .service-container{
+        border-bottom: 2px solid white;
+    }
+.headerforxidmet{
+margin-top: 20px;
+}
+    .icons{   opacity: 0.8;
+       padding:5%; 
+       filter: invert(100%);
+       width: 40px;
+       height: 40px;
+    }
+    .grids-for-icons{  padding: 5%;
+        text-align: left;
+        column-gap: 20px; 
+        row-gap: 10px;
+        display: grid;
+      grid-template-columns: 1fr 1fr;
+        align-items:center; 
+        justify-content: center;
+     
+
+    }
+    .service-text{
+        font-size: 14px;
+        line-height: 1.1;
+    }
+    .header-mechanic{ margin-top: 20px; margin-bottom: 20px;
+
+    }
+    .container-for-mechanic{
+        position: relative;
+        padding: 20px;
+        padding-bottom: 60px;
+        border-radius: 9px;
+         background-color: rgba(255, 255, 255, 0.085);
+
+    }
+    .button-for-mechanic{ padding: 8px 16px; font-size: 12px;
+        position: absolute;
+       top: 80%; left: 50%;
+    transform: translate(-50%, -50%);
+ 
+  font-weight:bold ;
+    }
+}
+
+
