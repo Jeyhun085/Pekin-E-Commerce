@@ -21,6 +21,9 @@ export default function ButtonAppBar() {
             <MenuItem component={Link} href="/contact">
               Contact
             </MenuItem>
+            <MenuItem component={Link} href="/service">
+             Service
+            </MenuItem>
             <MenuItem component={Link} href="/about">
               About
             </MenuItem>

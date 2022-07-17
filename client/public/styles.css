@@ -1,6 +1,5 @@
-body {
-  background-color: #008a9c;
-background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+body{ font-family: sans-serif;
+  background-image: linear-gradient(to bottom right, rgb(2, 15, 94), rgb(64, 5, 102));
 }
 
 .itemsContainer {
