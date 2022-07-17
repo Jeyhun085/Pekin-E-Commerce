@@ -22,8 +22,8 @@ app.set("view engine", "ejs");
 app.post("/", express.static("public"), async (req, res) => {
   const model = req.body.model;
   const section = req.body.section;
-  if (model==="") {
-    res.send(null)
+  if (model === "") {
+    res.send(null);
   } else {
     const getItems = async () => {
       try {
@@ -36,21 +36,30 @@ app.post("/", express.static("public"), async (req, res) => {
         console.error(err);
       }
     };
-  
+
     const items = await getItems();
     const data = items.map((item) => {
+      const officialName =
+        item.attributes.find(
+          (attribute) => attribute.id === "76d741ff-bce9-11ec-0a80-0b4000127eff"
+        ) === undefined
+          ? "Adi heleki yoxdu"
+          : item.attributes.find(
+              (attribute) =>
+                attribute.id === "76d741ff-bce9-11ec-0a80-0b4000127eff"
+            ).value;
+
       return {
         article: item.article,
-        name: item.name,
+        name: officialName,
         price: item.salePrices[0].value / 100,
-        available: item.stock>0 ? true : false,
-        inTransit: item.inTransit>0 ? true : false
+        available: item.stock > 0 ? true : false,
+        inTransit: item.inTransit > 0 ? true : false,
       };
     });
     console.log(data.length);
     res.send(data);
   }
-  
 });
 
 const Schema = mongoose.Schema;

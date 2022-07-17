@@ -7,8 +7,8 @@ function skeletons(num) {
   for (var i=0; i < num; i++) {
     objs.push(<Grid key={i}  item>
       <ContentLoader
-        speed={3}
-        width={200}
+        speed={1}
+        width={400}
         height={300}
         backgroundColor="#f3f3f3"
         foregroundColor="#d1cdc2"
@@ -29,8 +29,8 @@ function skeletons(num) {
 
 export default function Loader(props) {
   return (
-    <Grid container spacing={2}>
-      {skeletons(30)}
+    <Grid container justifyContent={"center"} spacing={2}>
+      {skeletons(20)}
     </Grid>
   );
 }

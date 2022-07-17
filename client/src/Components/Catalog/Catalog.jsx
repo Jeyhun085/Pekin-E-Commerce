@@ -8,38 +8,48 @@ import ImgMediaCard from "./ImgMediaCard";
 import CartButton from "./CartButton";
 import Loader from "./Loader";
 import DialogSelect from "./DialogSelect";
+import { Typography } from "@mui/material";
+import { GWModels, CAModels, HavalModels, sections } from "../ModelLists";
+import { useCookies } from "react-cookie";
 
 
+
+const allModelsName = [...GWModels, ...CAModels, ...HavalModels];
 
 export default function Catalog() {
   const group = useSelector((state) => state.group);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies();
   useEffect(() => {
-    setData([])
+    setData([]);
     const fetchData = async () => {
       try {
-        const result = await fetch("http://localhost:8080", {
+        const result = await fetch(`http://${window.location.hostname}:8080`, {
           headers: {
-            'Content-Type':'application/json'
-        },
-        mode: 'cors',
+            "Content-Type": "application/json",
+          },
+          mode: "cors",
           method: "POST",
-          body: JSON.stringify(group) 
+          body: JSON.stringify(group),
         });
 
         const body = await result.json();
 
         setData(body);
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
     };
 
     fetchData();
-    setIsLoading(true)
+    setIsLoading(true);
+    
+    
   }, [group]);
+
+  
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -49,38 +59,51 @@ export default function Catalog() {
   }));
 
   return (
-  <Fragment>
-  <Box sx={{ flexGrow: 1 }}>
-  <div>
-    <h1>Current model is "{group.model}"" and section is: "{group.section}"  {group.isSelected}</h1>
-  </div>
-  {group.isSelected || <DialogSelect/>}
-  
-  </Box>
-    <div  className="itemsContainer">
-    {isLoading && <Loader />}
-      <Box sx={{ flexGrow: 1}}>
-        <Grid container spacing={2}>
-          {data.map((item, index) => {
-            return (
-              <Grid key={index} item>
-                <Item>
-                  <ImgMediaCard
-                    article={item.article}
-                    price={item.price}
-                    name={item.name}
-                    available= {item.available}
-                    inTransit= {item.inTransit}
-                  />
-                </Item>
-              </Grid>
-            );
-          })}
-        </Grid>
-        <CartButton />
+    <Fragment>
+      <Box sx={{ flexGrow: 1 }}>
+        <Typography sx={{ marginTop: 5 }} align="center" variant="h3">
+          Hazirdaki Model:"
+          { group.model === "" ?
+          "Bosdur" :
+            allModelsName.find((obj) => {
+              return obj.value === group.model;
+            }).name 
+          }
+          ", Bolme:"
+          {
+            group.section === "" ?
+          "Bosdur" :
+            sections.find((obj) => {
+              return obj.value === group.section;
+            }).name 
+          }
+          "
+        </Typography>
+        {group.isSelected || <DialogSelect />}
       </Box>
-    </div>
-  </Fragment>
-  
+      <div className="itemsContainer">
+        {isLoading && <Loader />}
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container justifyContent={"center"} spacing={2}>
+            {data.map((item, index) => {
+              return (
+                <Grid key={index} item>
+                  <Item>
+                    <ImgMediaCard
+                      article={item.article}
+                      price={item.price}
+                      name={item.name}
+                      available={item.available}
+                      inTransit={item.inTransit}
+                    />
+                  </Item>
+                </Grid>
+              );
+            })}
+          </Grid>
+          <CartButton />
+        </Box>
+      </div>
+    </Fragment>
   );
 }
