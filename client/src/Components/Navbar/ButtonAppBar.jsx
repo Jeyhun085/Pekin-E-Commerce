@@ -18,7 +18,7 @@ export default function ButtonAppBar() {
         <AppBar position="static" color="inherit">
           <Toolbar>
             <MenuItem style={{ marginLeft: "auto" }} component={Link} href="/">
-              Əsas səhfə
+              Əsas səhifə
             </MenuItem>
             <MenuItem component={Link} href="/contact">
               Əlaqə

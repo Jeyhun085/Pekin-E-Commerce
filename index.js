@@ -20,7 +20,6 @@ app.use(express.json());
 app.use(cors());
 app.set("view engine", "ejs");
 app.post("/", express.static("public"), async (req, res) => {
-  console.log(req.body);
   const model = req.body.model;
   const section = req.body.section;
   if (model === "") {
@@ -58,7 +57,6 @@ app.post("/", express.static("public"), async (req, res) => {
         inTransit: item.inTransit > 0 ? true : false,
       };
     });
-    console.log(data.length);
     res.send(data);
   }
 });
@@ -78,7 +76,6 @@ const ordersSchema = new Schema({
 });
 
 app.post("/checkout", async (req, res) => {
-  console.log(req.body);
 
   await mongoose.connect(mongoURI);
 

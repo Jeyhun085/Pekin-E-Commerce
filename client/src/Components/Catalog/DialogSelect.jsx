@@ -67,7 +67,6 @@ export default function DialogSelect() {
     } else {
       handleClose()
     }
-    setCookie("latestGroup", group , { expires: new Date(Date.now() + 604800000), path: "/catalog" })
 
   };
 
@@ -125,7 +124,7 @@ export default function DialogSelect() {
           </Box>
         </DialogContent>
         <DialogActions sx={{ justifyContent: "space-between" }}>
-        <Button color="secondary" variant="contained" sx={{fontSize: "1.5rem"}} href="/" >Əsas səhfə</Button>
+        <Button color="secondary" variant="contained" sx={{fontSize: "1.5rem"}} href="/" >Əsas səhifə</Button>
           <Button variant="contained" sx={{fontSize: "1.5rem"}} onClick={handleSubmit}>İrəlİ</Button>
         </DialogActions>
       </Dialog>

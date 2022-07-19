@@ -24,7 +24,6 @@ export default function Catalog() {
   useEffect(() => {
     setData([]);
     const fetchData = async () => {
-      console.log(JSON.stringify(group));
       try {
         const result = await fetch(`http://${window.location.hostname}:8080`, {
           headers: {
