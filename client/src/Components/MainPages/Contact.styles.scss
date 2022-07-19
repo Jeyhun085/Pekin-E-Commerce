@@ -1,5 +1,12 @@
 .contact-container {
-    h1 {
-        color:blue;
+    height: 100vh;
+    padding: 5%;
+    .melumat {
+        padding: 5%;
+    }
+    .contact-info {
+        svg {
+           fill: white; 
+        }
     }
 }

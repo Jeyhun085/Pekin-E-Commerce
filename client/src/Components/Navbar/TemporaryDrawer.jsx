@@ -74,7 +74,7 @@ export default function TemporaryDrawer() {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
+          <Button variant="contained" color="secondary" onClick={toggleDrawer(anchor, true)}>
             Filter
           </Button>
           <Drawer

@@ -8,6 +8,8 @@ import { Outlet } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "@mui/material/Link";
 import { Routes, Route } from "react-router-dom";
+import Button from "@mui/material/Button";
+import Footer from "../MainPages/Footer";
 
 export default function ButtonAppBar() {
   return (
@@ -16,19 +18,19 @@ export default function ButtonAppBar() {
         <AppBar position="static" color="inherit">
           <Toolbar>
             <MenuItem style={{ marginLeft: "auto" }} component={Link} href="/">
-              Home
+              Əsas səhfə
             </MenuItem>
             <MenuItem component={Link} href="/contact">
-              Contact
+              Əlaqə
             </MenuItem>
             <MenuItem component={Link} href="/service">
-             Service
+              Servis
             </MenuItem>
             <MenuItem component={Link} href="/about">
-              About
+              Haqqımızda
             </MenuItem>
             <MenuItem component={Link} href="/catalog">
-              Catalog
+              Kataloq
             </MenuItem>
             <Routes>
               <Route path="catalog" element={<TemporaryDrawer />} />
@@ -37,6 +39,7 @@ export default function ButtonAppBar() {
         </AppBar>
       </Box>
       <Outlet />
+      <Footer />
     </Fragment>
   );
 }

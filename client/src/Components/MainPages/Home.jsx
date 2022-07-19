@@ -9,27 +9,23 @@ import "swiper/css/navigation";
 import "./Home.styles.scss";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Icon from '@mui/icons-material/ThumbUpAlt';
-import DeleteSharpIcon from '@mui/icons-material/DeleteSharp';
+import Icon from "@mui/icons-material/ThumbUpAlt";
+import DeleteSharpIcon from "@mui/icons-material/DeleteSharp";
+import Button from '@mui/material/Button';
 
 const features = [
   {
-    text: "Salam 1",
+    text: "Yüksək keyfiyyət",
     image: "/images/badge.png",
-podtext: "functionn1"
-   
   },
   {
-    text: "Salam 2",
+    text: "Sürətli çatdırılma",
     image: "/images/fast-delivery.png",
-    podtext: "functionn2"
   },
   {
-    text: "Salam 3",
+    text: "Münasib qiymətlər",
     image: "/images/wallet.png",
-    podtext: "functionn3"
   },
-
 ];
 
 export default function Home() {
@@ -37,105 +33,111 @@ export default function Home() {
     <div className="home-page">
       {/* Slogan */}
       <div className="slogan-container">
-        <h1>KEYFIYYETI TEMIN EDIRIK</h1>
+        <Typography
+          fontWeight="800"
+          fontFamily="Montserrat"
+          variant="h2"
+          color="white"
+        >
+          Keyfiyəti təmin edirik!
+        </Typography>
       </div>
-
       {/* Brands */}
       <div className="brands-container">
-        <Grid container spacing={1}>
+        <Grid container alignItems="center" spacing={1}>
           <Grid align="center" item xs={4}>
-            <Box className="marki"
+            <Box
+              className="marki"
               component="img"
-              sx={{
-                
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
               alt="Great Wall"
               src="/images/gw.png"
             />
           </Grid>
           <Grid align="center" item xs={4}>
-            <Box className="marki"
+            <Box
+              className="marki"
               component="img"
-              sx={{
-               
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
               alt="Haval"
               src="/images/HavalLogo.svg"
             />
           </Grid>
           <Grid align="center" item xs={4}>
-            <Box 
-          className="marki"
+            <Box
+              className="marki"
               component="img"
-              sx={{
-               
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-              }}
               alt="Changan"
               src="/images/changanlogo1.png"
             />
           </Grid>
         </Grid>
-        <Typography className="brandsText" variant="h5" align="center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. A, proin nec
-          eu donec sit quis.
+        <Typography
+          fontWeight="200"
+          fontFamily="Montserrat"
+          className="brandsText"
+          variant="h5"
+          align="center"
+          color="white"
+        >
+          "Great Wall", "Haval" və "Changan" brendlərinə ehtiyat hissələrini
+          bizdən əldə edə bilərsiniz.
         </Typography>
       </div>
-
       {/* Hot Parts */}
       <div className="deal-container">
-        <Typography className="dealText" variant="h5" align="center">
-          Ayin kampaniyasi
+        <Typography
+          paddingBottom={5}
+          fontWeight="800"
+          fontFamily="Montserrat"
+          variant="h3"
+          align="center"
+        >
+          Bu ayın təklifi
         </Typography>
         <CardMedia
-          className="deal-image"
           component="img"
           height="400"
           image="/images/sale.jpg"
           alt="sale"
         />
-
       </div>
-
-      {/* Features */}
+      {/* Features */} 
       <div className="features-container">
-      <div>
-      <Typography variant="h5" align="center"
-      >Ustunluk</Typography>
-      </div>
-        <Grid container justify="center" alignItems="center" spacing={5}>
+        <div>
+          <Typography
+            paddingBottom={5}
+            fontWeight="800"
+            fontFamily="Montserrat"
+            variant="h3"
+            align="center"
+          >
+            Niyə "Pekin Avto"?
+          </Typography>
+        </div>
+        <Grid container justify="center" alignItems="center">
           {features.map((feature) => {
             return (
               <Grid item align="center" xs={12} sm={12} md={4}>
-                <Card className="cardsFeautures"
+                <Card
+                  className="cardsFeautures"
                   sx={{ boxShadow: "none", bgcolor: "inherit", maxWidth: 150 }}
                 >
                   <CardActionArea>
                     <CardMedia
                       className="featureIconImage"
                       component="img"
-                   
-                     
                       image={feature.image}
                       alt="icons"
                     />
                     <CardContent>
                       <Typography
+                        fontFamily="Montserrat"
                         className="featureIconText"
                         gutterBottom
-                        variant="h5"
+                        variant="h6"
                         align="center"
                         component="div"
-
                       >
-
                         {feature.text}
-                        {feature.podtext}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -146,12 +148,17 @@ export default function Home() {
         </Grid>
       </div>
       <div className="katalog-container">
-      <Typography className="catalog-info" variant="h6" align="center">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. A, proin nec
-          eu donec sit quis.
-      </Typography>
-
-        <button className="katalog-button">Kataloga kechid</button>
+        <Typography 
+        padding={5}
+        fontWeight="200"
+          fontFamily="Montserrat"
+          className="brandsText"
+          variant="h4"
+          align="center"
+          color="white">
+          Kataloq bölməsində bizdə mövcud olan ehtiyat hissələri ceşidi ilə yaxından tanış olub, evinizə onlayn sifariş edə bilərsiniz!
+        </Typography>
+        <Button size="large" variant="contained" color="success" href="/catalog">Kataloqa keçid</Button>
       </div>
     </div>
   );

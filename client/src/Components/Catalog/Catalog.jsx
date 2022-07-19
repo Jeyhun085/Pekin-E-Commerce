@@ -61,15 +61,15 @@ export default function Catalog() {
   return (
     <Fragment>
       <Box sx={{ flexGrow: 1 }}>
-        <Typography sx={{ marginTop: 5 }} align="center" variant="h3">
-          Hazirdaki Model:"
+        <Typography sx={{ marginTop: 5, color: "white" }} align="center" variant="h3">
+          Hazırdaki model:"
           { group.model === "" ?
           "Bosdur" :
             allModelsName.find((obj) => {
               return obj.value === group.model;
             }).name 
           }
-          ", Bolme:"
+          " Bölmə:"
           {
             group.section === "" ?
           "Bosdur" :

@@ -125,8 +125,8 @@ export default function DialogSelect() {
           </Box>
         </DialogContent>
         <DialogActions sx={{ justifyContent: "space-between" }}>
-        <Button color="secondary" variant="contained" sx={{fontSize: "1.5rem"}} href="/" >Esas sehife</Button>
-          <Button variant="contained" sx={{fontSize: "1.5rem"}} onClick={handleSubmit}>Ok</Button>
+        <Button color="secondary" variant="contained" sx={{fontSize: "1.5rem"}} href="/" >Əsas səhfə</Button>
+          <Button variant="contained" sx={{fontSize: "1.5rem"}} onClick={handleSubmit}>İrəlİ</Button>
         </DialogActions>
       </Dialog>
     </div>

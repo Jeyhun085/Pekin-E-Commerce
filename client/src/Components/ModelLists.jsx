@@ -36,11 +36,11 @@ const HavalModels = [
 
 
 
-const sections = [{name: "Asqi", value: "chassy"},
-   {name: "Muherrik", value: "engine"},
+const sections = [{name: "Asqı", value: "chassy"},
+   {name: "Mühərrik", value: "engine"},
     {name: "Transmissiya", value: "gearbox"}, 
-    {name: "Electric", value: "electric"},
-    {name: "Govde", value: "body"}
+    {name: "Elektrik", value: "electric"},
+    {name: "Gövdə", value: "body"}
   ];
 
 export { GWModels, CAModels, HavalModels, sections };

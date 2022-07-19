@@ -1,8 +1,14 @@
-body{ font-family: sans-serif;
-  background-image: linear-gradient(to bottom right, rgb(2, 15, 94), rgb(64, 5, 102));
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(2, 15, 94),
+    rgb(36, 2, 58)
+  );
+
 }
 
 .itemsContainer {
   padding: 5%;
 }
-
