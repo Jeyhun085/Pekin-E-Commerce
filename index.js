@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(cors());
 app.set("view engine", "ejs");
 app.post("/", express.static("public"), async (req, res) => {
+  console.log(req.body);
   const model = req.body.model;
   const section = req.body.section;
   if (model === "") {

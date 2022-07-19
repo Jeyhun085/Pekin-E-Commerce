@@ -42,6 +42,20 @@ export default function Home() {
           Keyfiyəti təmin edirik!
         </Typography>
       </div>
+
+      <div className="katalog-container">
+        <Typography 
+        padding={5}
+        fontWeight="200"
+          fontFamily="Montserrat"
+          className="brandsText"
+          variant="h4"
+          align="center"
+          color="white">
+          Kataloq bölməsində bizdə mövcud olan ehtiyat hissələri ceşidi ilə yaxından tanış olub, evinizə onlayn sifariş edə bilərsiniz!
+        </Typography>
+        <Button size="large" variant="contained" color="success" href="/catalog">Kataloqa keçid</Button>
+      </div>
       {/* Brands */}
       <div className="brands-container">
         <Grid container alignItems="center" spacing={1}>
@@ -147,19 +161,7 @@ export default function Home() {
           })}
         </Grid>
       </div>
-      <div className="katalog-container">
-        <Typography 
-        padding={5}
-        fontWeight="200"
-          fontFamily="Montserrat"
-          className="brandsText"
-          variant="h4"
-          align="center"
-          color="white">
-          Kataloq bölməsində bizdə mövcud olan ehtiyat hissələri ceşidi ilə yaxından tanış olub, evinizə onlayn sifariş edə bilərsiniz!
-        </Typography>
-        <Button size="large" variant="contained" color="success" href="/catalog">Kataloqa keçid</Button>
-      </div>
+      
     </div>
   );
 }
